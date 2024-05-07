@@ -20,4 +20,19 @@
         </foreach>
     </insert>
 
+    <select id="getFeed">
+        SELECT A.feed_id AS feedId, B.user_id AS writerId, B.nm AS writerNm,
+        B.pic AS writerPic, A.created_at AS createdAt, A.contents, A.location
+        FROM feed A
+        INNER JOIN user B
+        ON A.writer_id = B.user_id
+        ORDER BY A.feed_id DESC
+        LIMIT #{startIdx}, #{len} ;
+    </select>
+
+    <select id="getFeedPicsByFeedId">
+        SELECT pic
+        FROM feed_pics
+        WHERE feed_id = #{feedId}
+    </select>
 </mapper>

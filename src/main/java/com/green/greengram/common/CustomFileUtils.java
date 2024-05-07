@@ -16,7 +16,7 @@ import java.util.UUID;
 @ToString
 public class CustomFileUtils {
     private final String uploadPath ;
-
+    //value = xml에 저장된값을 사용하겠다.
     public CustomFileUtils(@Value("${file.dir}") String uploadPath) {
         this.uploadPath = uploadPath;
     }
